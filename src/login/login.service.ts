@@ -1,33 +1,52 @@
-import { Injectable } from '@nestjs/common';
-import { CreateLoginDto } from './dto/create-login.dto';
-import { UpdateLoginDto } from './dto/update-login.dto';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { LoginDocument } from './schema/login.schema';
+import { CreateLoginDto } from './dto/create-login.dto';
+import { UpdateLoginDto } from './dto/update-login.dto';
+import { Login, LoginDocument } from './schema/login.schema';
 
 @Injectable()
 export class LoginService {
-  constructor(
-    @InjectModel('Login') private readonly loginModel: Model<LoginDocument>,
-  ) {}
+  constructor(@InjectModel(Login.name) private readonly loginModel: Model<LoginDocument>) {}
 
-  create(createLoginDto: CreateLoginDto) {
+  async create(createLoginDto: CreateLoginDto) {
     return this.loginModel.create(createLoginDto);
   }
 
-  findAll() {
-    return this.loginModel.find();
+  async findAll() {
+    return this.loginModel.find().exec();
   }
 
-  findOne(id: string) {
-    return this.loginModel.findById(id);
+  async findOne(id: string) {
+    const login = await this.loginModel.findById(id).exec();
+    if (!login) {
+      throw new NotFoundException(`Login with ID ${id} not found`);
+    }
+    return login;
   }
 
-  update(id: string, updateLoginDto: UpdateLoginDto) {
-    return this.loginModel.findByIdAndUpdate(id, updateLoginDto);
+  async update(id: string, updateLoginDto: UpdateLoginDto) {
+    const updatedLogin = await this.loginModel.findByIdAndUpdate(id, updateLoginDto, { new: true }).exec();
+    if (!updatedLogin) {
+      throw new NotFoundException(`Login with ID ${id} not found`);
+    }
+    return updatedLogin;
   }
 
-  remove(id: string) {
-    return this.loginModel.findByIdAndDelete(id);
+  async remove(id: string) {
+    const deletedLogin = await this.loginModel.findByIdAndDelete(id).exec();
+    if (!deletedLogin) {
+      throw new NotFoundException(`Login with ID ${id} not found`);
+    }
+    return deletedLogin;
+  }
+
+  async login(createLoginDto: CreateLoginDto): Promise<boolean> {
+    const { username, password } = createLoginDto;
+    const userFound = await this.loginModel.findOne({ username, password }).exec();
+    if (!userFound) {
+      throw new BadRequestException('Invalid username or password');
+    }
+    return true;
   }
 }

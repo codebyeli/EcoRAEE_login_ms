@@ -31,4 +31,9 @@ export class LoginController {
   remove(@Param('id') id: string) {
     return this.loginService.remove(id);
   }
+
+  @Post()
+  login(@Body() createLoginDto: CreateLoginDto) {
+    return this.loginService.login(createLoginDto);
+  }
 }
