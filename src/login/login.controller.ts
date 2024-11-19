@@ -32,7 +32,7 @@ export class LoginController {
     return this.loginService.remove(id);
   }
 
-  @Post()
+  @Post('userAccess')
   login(@Body() createLoginDto: CreateLoginDto) {
     return this.loginService.login(createLoginDto);
   }

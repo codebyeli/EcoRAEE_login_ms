@@ -41,12 +41,15 @@ export class LoginService {
     return deletedLogin;
   }
 
-  async login(createLoginDto: CreateLoginDto): Promise<boolean> {
+  async login(createLoginDto: CreateLoginDto): Promise<any> {
     const { username, password } = createLoginDto;
     const userFound = await this.loginModel.findOne({ username, password }).exec();
-    if (!userFound) {
-      throw new BadRequestException('Invalid username or password');
+    console.log(userFound);
+    if (!userFound || userFound === null) {
+      return false
+    } else {
+      return userFound;
     }
-    return true;
+
   }
 }
