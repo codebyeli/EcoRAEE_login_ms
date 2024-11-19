@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
 import { LoginService } from './login.service';
-import { CreateLoginDto } from './dto/create-login.dto';
+import { AccessLoginDto, CreateLoginDto } from './dto/create-login.dto';
 import { UpdateLoginDto } from './dto/update-login.dto';
 
 @Controller('login')
@@ -33,7 +33,7 @@ export class LoginController {
   }
 
   @Post('userAccess')
-  login(@Body() createLoginDto: CreateLoginDto) {
+  login(@Body() createLoginDto: AccessLoginDto) {
     return this.loginService.login(createLoginDto);
   }
 }

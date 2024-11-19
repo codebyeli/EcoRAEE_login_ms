@@ -4,10 +4,17 @@ export type LoginDocument = Login & Document;
 
 @Schema({ timestamps: true })
 export class Login {
-  @Prop({ required: true })
+  @Prop()
+  name: string;
+  @Prop()
+  lastName: string;
+  @Prop()
+  email: string;
+  @Prop()
+  birthday: string;
+  @Prop({unique: true})
   username: string;
-  @Prop({ required: true })
+  @Prop()
   password: string;
 }
-
 export const LoginSchema = SchemaFactory.createForClass(Login);
