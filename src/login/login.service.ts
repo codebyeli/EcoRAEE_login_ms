@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { AccessLoginDto, CreateLoginDto } from './dto/create-login.dto';
+import { AccessLoginDto, CreateLoginDto, ForgotPasswordDto } from './dto/create-login.dto';
 import { UpdateLoginDto } from './dto/update-login.dto';
 import { Login, LoginDocument } from './schema/login.schema';
 
@@ -48,8 +48,21 @@ export class LoginService {
     if (!userFound || userFound === null) {
       return false
     } else {
-      return userFound;
+      return userFound
     }
 
+  }
+
+  async forgotPassword(createLoginDto: ForgotPasswordDto): Promise<any> {
+    const { email, username, password } = createLoginDto;
+    const userFound = await this.loginModel.findOne({ email, username }).exec();
+    console.log(userFound);
+    if (!userFound || userFound === null) {
+      return false;
+    } else {
+      userFound.password = password;
+      await userFound.save();
+      return userFound;
+    }
   }
 }

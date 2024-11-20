@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
 import { LoginService } from './login.service';
-import { AccessLoginDto, CreateLoginDto } from './dto/create-login.dto';
+import { AccessLoginDto, CreateLoginDto, ForgotPasswordDto } from './dto/create-login.dto';
 import { UpdateLoginDto } from './dto/update-login.dto';
 
 @Controller('login')
@@ -35,5 +35,10 @@ export class LoginController {
   @Post('userAccess')
   login(@Body() createLoginDto: AccessLoginDto) {
     return this.loginService.login(createLoginDto);
+  }
+
+  @Post('forgotPassword')
+  forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDto) {
+    return this.loginService.forgotPassword(forgotPasswordDto);
   }
 }
