@@ -8,8 +8,10 @@ RUN npm install
 
 COPY . .
 
+RUN npm run build
+
 COPY .env .env
 
 EXPOSE 3000
 
-CMD ["node", "main.ts"]
+CMD ["npm", "run", "start:prod"]
