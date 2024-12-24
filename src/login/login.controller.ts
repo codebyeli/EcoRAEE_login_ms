@@ -7,6 +7,16 @@ import { UpdateLoginDto } from './dto/update-login.dto';
 export class LoginController {
   constructor(private readonly loginService: LoginService) {}
 
+  @Post('userAccess')
+  login(@Body() createLoginDto: AccessLoginDto) {
+    return this.loginService.login(createLoginDto);
+  }
+
+  @Post('forgotPassword')
+  forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDto) {
+    return this.loginService.forgotPassword(forgotPasswordDto);
+  }
+
   @Post()
   create(@Body() createLoginDto: CreateLoginDto) {
     return this.loginService.create(createLoginDto);
@@ -30,15 +40,5 @@ export class LoginController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.loginService.remove(id);
-  }
-
-  @Post('userAccess')
-  login(@Body() createLoginDto: AccessLoginDto) {
-    return this.loginService.login(createLoginDto);
-  }
-
-  @Post('forgotPassword')
-  forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDto) {
-    return this.loginService.forgotPassword(forgotPasswordDto);
   }
 }
