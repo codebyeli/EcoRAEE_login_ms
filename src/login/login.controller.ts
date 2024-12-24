@@ -7,12 +7,12 @@ import { UpdateLoginDto } from './dto/update-login.dto';
 export class LoginController {
   constructor(private readonly loginService: LoginService) {}
 
-  @Post('userAccess')
-  login(@Body() createLoginDto: AccessLoginDto) {
-    return this.loginService.login(createLoginDto);
+  @Post('access')
+  login(@Body() accessLoginDto: AccessLoginDto) {
+    return this.loginService.login(accessLoginDto);
   }
 
-  @Post('forgotPassword')
+  @Post('forgot-password')
   forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDto) {
     return this.loginService.forgotPassword(forgotPasswordDto);
   }
