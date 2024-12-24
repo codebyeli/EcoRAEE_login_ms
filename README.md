@@ -1,99 +1,48 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# EcoRAEE
+<img src="https://github.com/user-attachments/assets/f7e92451-e53c-44cb-80ef-5b496a9edf6d" alt="EcoRAEE" width="100"/>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+**EcoRAEE** es una aplicación web desarrollada con el propósito de crear conciencia y facilitar el proceso de reciclaje de Residuos de Aparatos Eléctricos y Electrónicos (RAEE). Este proyecto fue creado como parte de los requisitos para optar al título de Ingeniería en Sistemas.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## Descripción General
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+EcoRAEE proporciona un enfoque integral para promover el manejo responsable de los RAEE, reduciendo su impacto negativo en el medio ambiente. A través de una interfaz amigable y funcional, los usuarios pueden aprender sobre el reciclaje sostenible y participar activamente en el proceso de recolección de estos residuos.
 
-## Project setup
+### Características Principales
 
-```bash
-$ npm install
-```
+1. **Página de Inicio (Landing Page):**
 
-## Compile and run the project
+   - Información general sobre qué son los RAEE
+   - Consejos prácticos para manejarlos de forma responsable.
+   - Beneficios ambientales de su correcto reciclaje.
 
-```bash
-# development
-$ npm run start
+2. **Página Institucional:**
 
-# watch mode
-$ npm run start:dev
+   - Misión, visión y valores de EcoRAEE como entidad ficticia comprometida con la sostenibilidad.
 
-# production mode
-$ npm run start:prod
-```
+3. **Módulo de Autenticación:**
 
-## Run tests
+   - Inicio de sesión.
+   - Recuperación de contraseña.
+   - Registro de nuevos usuarios.
 
-```bash
-# unit tests
-$ npm run test
+4. **Dashboard para Usuarios y Administradores:**
 
-# e2e tests
-$ npm run test:e2e
+   - Gestión de citas para la recolección de RAEE.
+   - Herramientas diferenciadas para usuarios regulares y administradores.
 
-# test coverage
-$ npm run test:cov
-```
+---
 
-## Deployment
+## Tecnologías Utilizadas
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+EcoRAEE combina tecnologías modernas y mejores prácticas de desarrollo web para garantizar una experiencia fluida y eficiente. Entre estas se encuentran:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+- **Frontend:** Diseño responsivo y accesible, manejado y hecho con Angular.
+- **Backend:** Arquitectura robusta para la gestión segura de datos, hecho con NodeJS y NestJS.
+- **Base de datos:** Almacenamiento confiable de información de usuarios y citas, manejada con MongoDB
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+---
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+EcoRAEE representa un compromiso con el futuro sostenible, promoviendo el reciclaje y la conciencia ambiental a través de la tecnología. Este proyecto no solo es una demostración de habilidades técnicas, sino también un aporte significativo hacia un mundo más limpio y responsable.
 
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
